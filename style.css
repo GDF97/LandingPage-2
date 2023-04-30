@@ -37,7 +37,7 @@ a,ul,li{
     color: var(--color-font-text);
 }
 
-#menu{
+#menu-header{
     display: flex;
     align-items: center;
     gap: 4rem;
@@ -66,7 +66,7 @@ a,ul,li{
     box-shadow: 0px 0px 10px 5px red;
 }
 
-#menu a{
+#menu-header a{
     position: relative;
     color: var(--color-font-text);
     font-family: var(--normal--font);
@@ -75,7 +75,7 @@ a,ul,li{
     text-transform: uppercase;
 }
 
-#menu a::before{
+#menu-header a::before{
     content: '';
     position: absolute;
     width: 0%;
@@ -85,11 +85,11 @@ a,ul,li{
     transition: .2s;
 }
 
-#menu a:hover::before{
+#menu-header a:hover::before{
     width: 100%;
 }
 
-#menu a:hover{
+#menu-header a:hover{
     color: red;
 }
 
@@ -202,6 +202,169 @@ a,ul,li{
 }
 /**Fim Landing Page**/
 
+/**Segunda Tela**/
+
+
+.hometales-japan{
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 2rem;
+}
+
+.hometales-japan-content{
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    
+}
+
+
+.left{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#frame{
+    width: 75%;
+    height: 90%;
+    background-image: url(img/image21.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.right{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+
+
+.modal-page{
+    position: relative;
+    width: 75%;
+    height: 40%;
+}
+
+.modal-scroll{
+    width: 100%;
+    height: calc(100% - 5rem);
+    overflow:auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.modal-scroll::-webkit-scrollbar{
+    background: rgba(90, 90, 90, 0.386);
+    width: 10px;
+    padding: 1rem;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px ;
+}
+
+.modal-scroll::-webkit-scrollbar-thumb{
+    width: 5px ;
+    background-color: red;
+    border-radius: 20px;       /* roundness of the scroll thumb */
+}
+
+
+
+.modal-scroll  h2{
+    font-family: var(--japan--font);
+    color: var(--color-font-japan);
+    font-weight: 200;
+}
+
+.modal-scroll h1{
+    font-family: var(--normal--font);
+    color: var(--color-font-text);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 4rem;
+}
+
+.modal-scroll p{
+    font-family: var(--normal--font);
+    font-weight: 100;
+    color: var(--color-font-text);
+}
+
+#navbar-modal{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    height: 5rem;
+}
+
+#menu-modal{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding-left: 1rem;
+    font-size: 1.2rem;
+    font-family: var(--normal--font);
+    color: var(--color-font-text);
+    font-weight: 200;
+}
+
+#menu-modal a{
+    position: relative;
+    color: var(--color-font-text);
+    font-family: var(--normal--font);
+    font-size: 1em;
+    letter-spacing: .1rem;
+}
+
+#menu-modal a::before{
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 2px;
+    bottom: -3px;
+    background-color: red;
+    transition: .2s;
+}
+
+#menu-modal a:hover::before{
+    width: 100%;
+}
+
+#menu-modal a:hover{
+    color: red;
+}
+
+#about{
+    position: relative;
+    background-color: red;
+    border: none;
+    width: 13rem;
+    height: 4rem;
+    border-radius: 60px;
+    color: var(--color-font-text);
+    font-family: var(--normal--font);
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .2rem;
+    cursor: pointer;
+    transition: .5s;
+    outline: none;
+    overflow: hidden;
+
+}
+/**Fim da Segunda Tela**/
 
 
 /**Responsividade**/
@@ -257,7 +420,7 @@ a,ul,li{
         
     }
 
-    #menu{
+    #menu-header{
         position: absolute;
         width: 40%;
         top: 70px;
@@ -272,13 +435,13 @@ a,ul,li{
         transition: 1s;
     }
 
-    #menu > li{
+    #menu-header > li{
         padding-top: 1rem;
         padding-bottom: 1rem;
         padding-left: 1rem;
     }
 
-    #navbar.active #menu{
+    #navbar.active #menu-header{
         visibility: visible;
         overflow-y: auto;
         height: 25vh;
@@ -301,6 +464,43 @@ a,ul,li{
         display: none;
     }
 
+}
+
+@media (max-width:800px){
+    .hometales-japan-content{
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .left #frame{
+        width: 100%;
+        height: 90vh;
+    }
+
+    .right{
+        justify-content: flex-start;
+    }
+
+    .modal-page{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-scroll{
+        height: 50vh;
+    }
+
+    #navbar-modal{
+        display: none;
+    }
+
+    #about{
+        width: 7.5rem;
+        height: 3rem;
+        font-size: .6rem;
+    }
 }
 
 @media (max-width:685px) {
